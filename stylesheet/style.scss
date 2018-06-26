@@ -1,0 +1,696 @@
+//defining some theme colors
+$wall-color: #A02E39;
+$wall-bottom: #ccc;
+$floor-color: #80232C;
+$carpet-inner: #D23F4F;
+$carpet-outer-1: #C32234;
+$carpet-outer-2: #841620;
+$carpet-outer-3: #A22330;
+
+$flower-pot-holder: #B2915D;
+$flower-pot-color: #9D47B2;
+$flower-center: #5F546F;
+$flower-1-color: #F3C256;
+$flower-2-color: #C5325F;
+
+$lamp-color: #56003A;
+
+$sofa-back: #484F16;
+$sofa-seat: #586218;
+$sofa-base: #839E3C;
+
+//small style reset
+*{margin: 0; padding: 0;}
+
+
+.room{
+    background: $wall-color;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    .flower-pot{
+        height: 200px;
+        width: 200px;
+        position: absolute;
+        right: 300px;
+        top: 50px;
+        // background: yellow;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        border-bottom: 10px solid $flower-pot-holder;
+        .flower-1{
+            height: 100px;
+            width: 100px;
+            position: absolute;
+            top: 50px;
+            left: 45px;
+            .center{
+                height: 10px;
+                width: 10px;
+                border-radius: 50%;
+                background: $flower-center;
+                position: absolute;
+                top: 10px;
+                left: 15px;
+                z-index: 2;
+            }
+            .petal{
+                height: 15px;
+                width: 20px;
+                border-radius: 50%;
+                background: $flower-1-color;
+                position: absolute;
+                // transform: scaleX(1.5) rotate(-30deg);
+                transform-origin: 0% 50%;
+                top: 8px;
+                left: 20px;
+                // border: 1px solid $flower-center;
+                @for $i from 1 through 6 {
+                    &.petal-#{$i}{
+                        transform: rotate(#{59 * $i}deg);
+                    }
+                }
+            }
+            .stalk{
+                height: 60px;
+                width: 5px;
+                border-right: 3px solid green;
+                border-top-right-radius: 50%;
+                border-bottom-right-radius: 50%;
+                position: absolute;
+                left: 20px;
+                transform: rotate(-40deg)
+            }
+        }
+        .flower-2{
+            height: 100px;
+            width: 100px;
+            position: absolute;
+            top: 20px;
+            left: 80px;
+            .center{
+                height: 17px;
+                width: 17px;
+                border-radius: 50%;
+                background: $flower-center;
+                position: absolute;
+                top: 8px;
+                left: 12px;
+                z-index: 2;
+            }
+            .petal{
+                height: 20px;
+                width: 25px;
+                border-radius: 50%;
+                background: $flower-2-color;
+                position: absolute;
+                // transform: scaleX(1.5) rotate(-30deg);
+                transform-origin: 0% 50%;
+                top: 8px;
+                left: 20px;
+                // border: 1px solid $flower-center;
+                @for $i from 1 through 6 {
+                    &.petal-#{$i}{
+                        transform: rotate(#{59 * $i}deg);
+                    }
+                }
+            }
+            .stalk{
+                height: 100px;
+                width: 5px;
+                border-left: 3px solid green;
+                border-top-left-radius: 50%;
+                border-bottom-left-radius: 50%;
+                position: absolute;
+                left: 20px;
+                // transform: rotate(-40deg)
+            }
+        }
+        .pot{
+            width: 50%;
+            height: 50%;
+            background: $flower-pot-color;
+            position: absolute;
+            bottom: 0;
+            left: 50px;
+            border-radius: 50%;
+            z-index: 3;
+            .band{
+                width: 40%;
+                height: 12px;
+                box-sizing: border-box;
+                background: #D59AB1;
+                position: absolute;
+                border-bottom: 4px solid $flower-pot-color;
+                border-top: 4px solid $flower-pot-color;
+                top: -8px;
+                left: 30px;
+            }
+        }
+    }
+    .wall-portraits{
+        // background: white;
+        height: 270px;
+        width: 570px;
+        position: absolute;
+        top: 60px;
+        left: 400px;
+        .first{
+            height: 50%;
+            width: 63%;
+            box-sizing: border-box;
+            border: 5px solid #795028;
+            background: #7A9E47;
+            position: absolute;
+            .tower{
+                position: absolute;
+                top: 30px;
+                .cap{
+                    height: 30px;
+                    width: 200px;
+                    position: absolute;
+                    top: 30px;
+                    left: 60px;
+                    background: #475157;
+                    border-top-left-radius: 200px;
+                    border-top-right-radius: 200px;
+                    border-bottom: 10px solid #3B444A;
+                    .antenna{
+                        height: 40px;
+                        width: 2px;
+                        background: #475157;
+                        position: absolute;
+                        top: -20px;
+                        left: 100px;
+                        .light{
+                            position: absolute;
+                            left: -1px;
+                            height: 5px;
+                            width: 5px;
+                            border-radius: 50px;
+                            background: yellow;
+                            box-shadow: 0 0 10px yellow;
+                        }
+                    }
+                }
+                .base{
+                    height: 20px;
+                    width: 180px;
+                    background: #475157;
+                    position: absolute;
+                    bottom: -90px;
+                    left: 70px;
+                    box-sizing: border-box;
+                    padding: 3px 3px 3px 7px;
+                    .card{
+                        height: 100%;
+                        width: 10px;
+                        background: #8FAAB8;
+                        box-shadow: 
+                        12px 0px 0px 0px #8FAAB8,
+                        24px 0px 0px 0px #8FAAB8,
+                        36px 0px 0px 0px #8FAAB8,
+                        48px 0px 0px 0px #8FAAB8,
+                        60px 0px 0px 0px #8FAAB8,
+                        72px 0px 0px 0px #8FAAB8,
+                        84px 0px 0px 0px #8FAAB8,
+                        96px 0px 0px 0px #8FAAB8,
+                        108px 0px 0px 0px #8FAAB8,
+                        120px 0px 0px 0px #8FAAB8,
+                        132px 0px 0px 0px #8FAAB8,
+                        144px 0px 0px 0px #8FAAB8,
+                        156px 0px 0px 0px #8FAAB8;
+
+                    }
+                }
+            }
+        }
+        .second{
+            width: 36%;
+            height: 100%;
+            border: 5px solid #795028;
+            box-sizing: border-box;
+            background: #56A2B2;
+            position: absolute;
+            top: 0;
+            right: 0;
+            .sun{
+                width: 50px;
+                height: 50px;
+                background: #E0AD31;
+                border-radius: 50%;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+            .mountain{
+                border-width: 25px;
+                border-style: solid;
+                border-top-color: transparent;
+                border-left-color: transparent;
+                border-bottom-color: #5C392A;
+                border-right-color: transparent;
+                position: absolute;
+                left: 70px;
+                top: 70px;
+                @for $i from 1 through 7 {
+                    &.mountain-#{$i}{
+                        border-width: #{25 + $i * 10}px;
+                        left: #{70 - $i * 10}px;
+                    }
+                }
+            }
+        }
+        .third{
+            width: 45%;
+            height: 55%;
+            border: 5px solid #795028;
+            box-sizing: border-box;
+            background: #CBA847;
+            position: absolute;
+            // top: 20px;
+            left: 102px;
+            bottom: -20px;
+            // transition: transform 1s ease-in;
+            .planet{
+                width: 25px;
+                height: 25px;
+                border-radius: 50%;
+                background: #236044;
+                position: absolute;
+                bottom: 40px;
+                right: 50px;
+                box-shadow: -25px 10px 0 4px #2A7D58,  -55px -18px 0 20px #3A9E73, -95px -15px 0 8px #2A7D58, -120px -25px 0 0 #236044;
+            }
+        }
+    }
+    .floor{
+        height: 300px;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        background: $floor-color;
+        border-top: 10px solid $wall-bottom;
+        .carpet{
+            width: 150px;
+            height: 70px;
+            background: $carpet-inner;
+            border-radius: 50%;
+            transform: scaleX(2.5);
+            position: absolute;
+            bottom: -10px;
+            left: 42%;
+            box-shadow: 0px 0px 0 40px $carpet-outer-1, 0px 0px 0 50px $carpet-outer-2, 0px 0px 0 90px $carpet-outer-3;
+        }
+    }
+    .lamp{
+        width: 150px;
+        height: 600px;
+        // background: white;
+        position: absolute;
+        top: 200px;
+        left: 100px;
+        .head{
+            height: 100px;
+            width: 100%;
+            background: $lamp-color;
+        }
+        .holder{
+            width: 5px;
+            height: 500px;
+            background: $flower-pot-holder;
+            position: absolute;
+            left: 70px;
+        }
+        .base{
+            height: 5px;
+            width: 100px;
+            background: $flower-pot-holder;
+            position: absolute;
+            bottom: 0;
+            left: 20px;
+        }
+    }
+    .sofa{
+        height: 360px;
+        width: 700px;
+        // background: white;
+        position: absolute;
+        top: 400px;
+        left: 250px;
+        .back{
+            height: 250px;
+            width: 90%;
+            background: $sofa-back;
+            position: absolute;
+            left: 5%;
+            border-top-left-radius: 50px;
+            border-top-right-radius: 50px;
+            .back-1{
+                height: 100%;
+                width: 50%;
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .center{
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 50%;
+                    background: #58611A;
+                    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.3);
+                }
+            }
+            .back-2{
+                height: 100%;
+                width: 50%;
+                position: absolute;
+                // background: yellow;
+                top: 0;
+                right: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-left: 2px solid rgba(0, 0, 0, 0.3);
+                .center{
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 50%;
+                    background: #58611A;
+                    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.3);
+                }
+            }
+        }
+        .seat-on{
+            width: 80%;
+            height: 70px;
+            background: $sofa-seat;
+            position: absolute;
+            z-index: 3;
+            top: 200px;
+            left: 70px;
+            border-radius: 30px;
+            box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3);
+        }
+        .seat-on-2{
+            width: 80%;
+            height: 70px;
+            background: $sofa-base;
+            position: absolute;
+            z-index: 2;
+            top: 270px;
+            left: 70px;
+            .handle-left, .handle-right{
+                width: 130px;
+                height: 200px;
+                background: $sofa-base;
+                top: -130px;
+                border-radius: 10px 10px 0 0;
+            }
+            .handle-left{
+                position: absolute;
+                left: -70px;
+            }
+            .handle-right{
+                position: absolute;
+                right: -70px;
+            }
+        }
+        .base{
+            height: 20px;
+            width: 90%;
+            background: #644B38;
+            position: absolute;
+            bottom: 0;
+            left: 35px;
+        }
+    }
+    .appliances{
+        height: 460px;
+        width: 700px;
+        // background: white;
+        position: absolute;
+        top: 300px;
+        right: 100px;
+        .monitor{
+            width: 350px;
+            height: 200px;
+            // background: white;
+            position: absolute;
+            bottom: 200px;
+            right: 180px;
+            .screen{
+                width: 100%;
+                height: 80%;
+                box-sizing: border-box;
+                background: #C9C9C9;
+                border: 5px solid #252324;
+            }
+            .handle{
+                width: 30px;
+                height: 80px;
+                background: #252324;
+                position: absolute;
+                left: 160px;
+                .button{
+                    width: 6px;
+                    height: 6px;
+                    border-radius: 50%;
+                    background: #C9C9C9;
+                    position: absolute;
+                    left: 11px;
+                    top: -2px;
+                }
+            }
+            .base{
+                width: 80px;
+                height: 5px;
+                background: #252324;
+                z-index: 10;
+                position: absolute;
+                bottom: 0;
+                left: 135px;
+                border-radius: 10px 10px 0 0;
+            }
+        }
+        .speaker{
+            background: #6F6F6F;
+            height: 110px;
+            width: 90px;
+            position: absolute;
+            bottom: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .center{
+                width: 20px;
+                height: 20px;
+                background: #484848;
+                border-radius: 50%;
+                box-shadow: 0 0 0 15px #CACACA, 0 0 0 25px #4C4C4C;
+            }
+            &.left{
+                right: 70px;
+            }
+            &.right{
+                left: 70px;
+            }
+        }
+        .table{
+            width: 100%;
+            height: 200px;
+            background: #4F4F4A;
+            position: absolute;
+            bottom: 0;
+            padding: 5px;
+            box-sizing: border-box;
+            .top{
+                background: #282828;
+                height: 40%;
+                width: 100%;
+                position: relative;
+                .player{
+                    width: 50%;
+                    height: 30px;
+                    border: 12px solid #141414;
+                    position: absolute;
+                    bottom: 0;
+                    left: 150px;
+                    box-sizing: border-box;
+                    background: #444444;
+                    .tune{
+                        background: #C4C4C4;
+                        width: 5px;
+                        height: 2px;
+                        border-radius: 2px;
+                        margin: 2px;
+                        box-shadow: 10px 0 0 0 #C4C4C4, 
+                        20px 0 0 0 #C4C4C4, 
+                        30px 0 0 0 #C4C4C4, 
+                        40px 0 0 0 #C4C4C4,
+                        80px 0 0 0 #C4C4C4, 
+                        150px 0 0 0 #C4C4C4,
+                        160px 0 0 0 #C4C4C4,
+                        300px 0 0 3px #C4C4C4;
+                    }
+                }
+            }
+            .bottom{
+                height: 55%;
+                width: 100%;
+                margin-top: 5px;
+                box-sizing: border-box;
+                position: absolute;
+                .part-1{
+                    background: #282828;
+                    width: 70%;
+                    height: 100%;
+                    position: absolute;
+                    .cactus-pot{
+                        width: 100px;
+                        height: 100px;
+                        position: absolute;
+                        right: 40px;
+                        bottom: 0;
+                        .cactus{
+                            width: 20px;
+                            height: 50px;
+                            background: #55781D;
+                            border-radius: 100%;
+                            position: absolute;
+                            left: 40px;
+                            top: 10px;
+                            &.cactus-2{
+                                width: 15px;
+                                height: 30px;
+                                left: 50px;
+                                transform: rotate(45deg);
+                                transform-origin: 0% 100%;
+                            }
+                            &.cactus-3{
+                                width: 15px;
+                                height: 30px;
+                                left: 40px;
+                                transform: rotate(-45deg);
+                                transform-origin: 0% 100%;
+                            }
+                        }
+                        .pot{
+                            border-width: 25px;
+                            border-style: solid;
+                            border-top-color: #9D1C40;
+                            border-left-color: transparent;
+                            border-bottom-color: transparent;
+                            border-right-color: transparent;
+                            position: absolute;
+                            border-top-width: 50px;
+                            bottom: -25px;
+                            left: 10px;
+                            width: 40px;
+                        }
+                    }
+                    .box-1{
+                        width: 150px;
+                        height: 70px;
+                        background: #52C2B3;
+                        position: absolute;
+                        bottom: 0;
+                        left: 15px;
+                        .cover{
+                            width: 155px;
+                            height: 15px;
+                            background: #40716A;
+                            position: absolute;
+                            left: -3px;
+                        }
+                        .see-through{
+                            width: 30px;
+                            height: 15px;
+                            background: #E5E5E5;
+                            border: 2px solid grey;
+                            position: absolute;
+                            bottom: 20px;
+                            left: 50px;
+                        }
+                    }
+                    .box-2{
+                        width: 100px;
+                        height: 50px;
+                        background: #52C2B3;
+                        position: absolute;
+                        bottom: 0;
+                        left: 175px;
+                        .cover{
+                            width: 105px;
+                            height: 15px;
+                            background: #40716A;
+                            position: absolute;
+                            left: -3px;
+                        }
+                        .see-through{
+                            width: 10px;
+                            height: 5px;
+                            background: #E5E5E5;
+                            border: 2px solid grey;
+                            position: absolute;
+                            bottom: 20px;
+                            left: 50px;
+                        }
+                    }
+                }
+                .part-2{
+                    background: #282828;
+                    height: 100%;
+                    width: 190px;
+                    position: absolute;
+                    top: 0;
+                    right: 10px;
+                    .book{
+                        width: 20px;
+                        height: 100px;
+                        background: #D79D31;
+                        position: absolute;
+                        bottom: 0;
+                        
+                        &.book-1{
+                            transform: rotate(20deg);
+                            transform-origin: 50% 100%;
+                            right: 118px;
+                            width: 35px;
+                            height: 69px;
+                            bottom: 5px;
+                            background: #40716A;
+                        }
+                        &.book-6{
+                            transform: rotate(23deg);
+                            transform-origin: 50% 100%;
+                            right: 160px;
+                            width: 15px;
+                            bottom: 5px;
+                        }
+                        &.book-2{
+                            right: 0;
+                            height: 80px;
+                            width: 30px;
+                            background: #52C2B3;
+                        }
+                        &.book-3{
+                            right: 31px;
+                            height: 60px;
+                            background: $flower-pot-color;
+                        }
+                        &.book-4{
+                            right: 52px;
+                            height: 70px;
+                            background: #C13443;
+                        }
+                        &.book-5{
+                            right: 73px;
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}
